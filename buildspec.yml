@@ -11,8 +11,6 @@ phases:
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
       - curl -sS -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
-      # Download the latest stable release kubectl      
-      # - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
       # You must use a kubectl version that is within one minor version difference of your Amazon EKS cluster control plane. 
       # For example, a 1.21 kubectl client works with Kubernetes 1.20, 1.21 and 1.22 clusters.
       # Ref: https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html OR https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
@@ -48,6 +46,6 @@ phases:
       - echo $EKS_KUBECTL_ROLE_ARN
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --role-arn $EKS_KUBECTL_ROLE_ARN
       - kubectl apply -f deployment.yml 
-      - printf '[{"name":"deployment","imageUri":"%s"}]' $REPOSITORY_URI:$TAG > build.json
+      - printf '[{"name":"eksctl-demo","imageUri":"%s"}]' $REPOSITORY_URI:$TAG > build.json
 artifacts:
   files: build.json

@@ -8,24 +8,24 @@ Parameters:
 
   EksClusterName:
     Type: String
-    Description: The name of the EKS cluster created
-    Default: simple-jwt-api
+    Description: TODO - The name of the EKS cluster created
+    Default: eksctl-demo
     MinLength: 1
     MaxLength: 100
     ConstraintDescription: You must enter the EKS cluster name
 
   GitSourceRepo:
     Type: String
-    Description: GitHub source repository - must contain a Dockerfile and buildspec.yml in the base
-    Default: cd0157-Server-Deployment-and-Containerization
+    Description: TODO - GitHub source repository - must contain a Dockerfile and buildspec.yml in the base
+    Default: cd0157_Final_Pipeline
     MinLength: 1
     MaxLength: 100
     ConstraintDescription: You must enter a GitHub repository name
 
   GitBranch:
     Type: String
-    Default: master
-    Description: GitHub git repository branch - change triggers a new build
+    Default: main
+    Description: TODO - GitHub git repository branch - change triggers a new build
     MinLength: 1
     MaxLength: 100
     ConstraintDescription: You must enter a GitHub repository branch name
@@ -33,7 +33,7 @@ Parameters:
   GitHubToken:
     Type: String
     NoEcho: true
-    Description: GitHub API token - see https://github.com/blog/1509-personal-api-tokens
+    Description: TODO - GitHub API token - see https://github.com/blog/1509-personal-api-tokens
     MinLength: 3
     MaxLength: 100
     ConstraintDescription: You must enter a GitHub personal access token
@@ -41,7 +41,7 @@ Parameters:
   GitHubUser:
     Type: String
     Default: SudKul
-    Description: GitHub username or organization
+    Description: TODO - GitHub username or organization
     MinLength: 3
     MaxLength: 100
     ConstraintDescription: You must enter a GitHub username or organization
@@ -57,7 +57,7 @@ Parameters:
   KubectlRoleName:
     Type: String
     Default: UdacityFlaskDeployCBKubectlRole
-    Description: IAM role used by kubectl to interact with EKS cluster
+    Description: TODO - IAM role used by kubectl to interact with EKS cluster
     MinLength: 3
     MaxLength: 100
     ConstraintDescription: You must enter a kubectl IAM role
